@@ -1,0 +1,41 @@
+
+<%- include("../layouts/header") %>
+
+<script>
+  $(".alert").alert();
+</script>
+
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+
+      <h1 class="mt-5"><%= locals.message.title %></h1>
+      <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates officiis fugiat dignissimos. At id ullam exercitationem reiciendis expedita libero aliquam eius? In neque perferendis architecto consequatur laboriosam consequuntur eveniet fugit.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe assumenda labore iste id? Fugiat aperiam sed suscipit, atque numquam totam unde harum alias esse libero nesciunt? Suscipit amet consequatur explicabo!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam adipisci officiis, dolor eos consequatur distinctio illum nostrum in tenetur est vitae pariatur veniam? Ipsam, iste perspiciatis consequatur at necessitatibus harum!
+      </p>
+      <p>Use <a href="/docs/4.5/examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p>
+    </div>
+
+    <div class="container">
+      <div class="errors">
+        <% if (locals.message.error) { %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Database !</strong><%= locals.message.error %>
+          </div>
+        <% } %>         
+      </div>
+      <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block">ALL DB</button>
+      <button type="button" name="" id="" class="btn btn-success btn-lg btn-block">CREATE DB</button>
+    </main>
+    </div>
+
+    
+
+  
+
+<%- include("../layouts/footer") %>
+  
+  
