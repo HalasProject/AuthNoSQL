@@ -12,7 +12,6 @@ router.get('/auth/signin',(request,response) =>{
 router.get('/auth/signup',(request,response) =>{
     response.render("auth/sign_up.ejs");
 })
-
     
 
 module.exports = router;

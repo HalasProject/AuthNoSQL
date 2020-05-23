@@ -1,7 +1,7 @@
 const DB = require('../config/database')
 
 
-function checkDuplicateUsernameOrEmail(request,response,next){
+export function checkDuplicateUsernameOrEmail(request,response,next){
 
     // Check for username if already exist
     DB.user.findOne({
@@ -31,23 +31,3 @@ function checkDuplicateUsernameOrEmail(request,response,next){
     
     next();
 }
-
-/**function checkRole(request,response,next){
-    if (request.body.role){
-        DB.ROLE.forEach(a => {
-            if (a == request.body.role)
-                next()
-            else{
-                response.status(400).send(`This ${request.body.role} role seem not be existing`)
-                return;
-            }
-        })
-    }
-    next()
-}**/
-
-const verifySignUp = {
-    checkDuplicateUsernameOrEmail
-// checkRole
-}
-module.exports = verifySignUp;

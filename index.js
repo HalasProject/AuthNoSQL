@@ -4,40 +4,50 @@ import { role } from './seeds/role_seeds.js';
 // EXPRESS
 const express= require('express')
 const app = express()
+app.use('/assets',express.static('public'))
+app.set('view engine', 'ejs');
+
+//Body Parser
 const bodyParser = require('body-parser')
-const session  = require('express-session')
-const flash = require('connect-flash')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+// Cookie
 const cookieParser = require('cookie-parser')
+app.use(cookieParser('secret'))
+
+// Cors
+const cors = require('cors');
+app.use(cors({
+    origin: "http://localhost:8081",
+    credentials: true
+}))
 
 // DATABASE
 const DATABASE = require('./config/database.js')
 const DATABASE_SEEDS = require('./seeds/role_seeds')
 DATABASE_SEEDS.role()
-//Midleware
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(cookieParser('secret'))
-app.use(session({cookie: { maxAge:360000, secure: false }}))
-app.use(flash())
+
 
 // HEADER
-
 app.use((request,response,next) =>{
-    request.flash('title',process.env.APP_NAME)
-    response.locals = request.flash()
     response.header(
         "Access-Control-Allow-Headers",
         "x-access-token, Origin, Content-Type, Accept"
     );
     next();
 })
+
+
 // ROUTER
 let router = require('./routes/route')
-let router_api = require('./routes/api')
 app.use('/',router)
+
+let router_api = require('./routes/api')
 app.use('/api',router_api)
-app.use('/assets',express.static('public'))
+
+let router_admin = require('./routes/admin')
+app.use('/admin',router_admin)
 
 
 //Server
