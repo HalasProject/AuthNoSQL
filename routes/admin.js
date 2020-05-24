@@ -6,6 +6,9 @@ const controller = require('../controllers/user.controller')
 import { isAdmin } from "../middlewares/isAdmin";
 import { verifyToken } from "../middlewares/verifyToken";
 
-router.get("/",[verifyToken,isAdmin],controller.adminBoard);
+router.use([verifyToken,isAdmin])
+
+router.get("/",
+            controller.adminBoard);
 
 module.exports = router;

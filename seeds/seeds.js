@@ -1,6 +1,6 @@
 const DB = require('../config/database')
 
-exports.role = function(){
+export function role(){
     DB.role.estimatedDocumentCount((error, count) => {
       if (!error && count === 0) {
         new DB.role({
@@ -10,7 +10,7 @@ exports.role = function(){
             console.log("error", err);
           }
   
-          console.log("added 'user' to roles collection");
+          console.log("Added 'user' role ✔️");
         });
   
         new DB.role({
@@ -20,7 +20,7 @@ exports.role = function(){
             console.log("error", err);
           }
   
-          console.log("added 'moderator' to roles collection");
+          console.log("Added 'Moderator' to role ✔️");
         });
   
         new DB.role({
@@ -30,7 +30,7 @@ exports.role = function(){
             console.log("error", err);
           }
   
-          console.log("added 'admin' to roles collection");
+          console.log("Added 'Admin' to role ✔️");
         });
       }
     });

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Signup - <%= locals.title %> </title>
+    <title>Signup - <%= process.env.APP_NAME %> </title>
 
     <!-- Bootstrap core CSS -->
 <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -38,25 +38,48 @@
           font-size: 3.5rem;
         }
       }
+
+      .form-signin input[name="name"] {
+         margin-bottom: -1px;
+         border-bottom-right-radius: 0;
+         border-bottom-left-radius: 0;
+      }
+      .form-signin input[name="email"] {
+         margin-bottom: 0px;
+         border-top-right-radius: 0;
+         border-top-left-radius: 0;
+      }
+      .form-signin input[name="username"] {
+         margin-bottom: 0px;
+         border-radius: 0;
+      }
     </style>
     <!-- Custom styles for this template -->
     <link href="/assets/bootstrap/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
     <form method="POST" action="/api/auth/signup" class="form-signin">
-  <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-  <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-  <label for="inputEmail" class="sr-only">Name</label>
-  <input type="text" name="name" id="inputName" class="form-control" placeholder="Personal name" required autofocus>
-  <label for="inputEmail" class="sr-only">Usernmae</label>
-  <input type="text" name="username" id="inputName" class="form-control" placeholder="Username" required>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <img class="mb-4" src="/assets/app/logo.png" alt="" width="120" height="120">
+      <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+      
+      <label for="inputEmail" class="sr-only">Name</label>
+      <input type="text" name="name" id="inputName" class="form-control" placeholder="Personal name" required autofocus>
+      
+      <label for="inputEmail" class="sr-only">Usernmae</label>
+      <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required>
+      
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+      
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2020-2021 @halasdior</p>
-</form>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+      Already have an account ?<a href="/auth/signin"> Login</a>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020-2021 @halasdior</p>
+    </form>
+<script src="/assets/app/sweetalert.js"></script>
+<script src="/assets/app/axios.min.js"></script>
+<script src="/assets/app/auth.js"></script>
 </body>
 </html>

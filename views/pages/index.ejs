@@ -1,1 +1,129 @@
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title><%= process.env.APP_NAME %></title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.0/examples/blog/blog.css" rel="stylesheet">
+    <style>
+      body{
+        background-color: #f5f5f5;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+            <a class="text-muted" href="#">Subscribe</a>
+          </div>
+          <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark" href="#"><%= process.env.APP_NAME %></a>
+          </div>
+          
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="text-muted" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
+              </a>
+                <a class="btn btn-sm btn-outline-secondary" href="/auth/signin" style="margin-right: 15px;color: #fff;background-color: #6c757d;border-color: #6c757d;" >Sign In</a>
+                <a class="btn btn-sm btn-outline-secondary" href="/auth/signup">Sign up</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          <a class="p-2 text-muted" href="https://nodejs.org/">NodeJS</a>
+          <a class="p-2 text-muted" href="https://expressjs.com/fr/">ExpressJS</a>
+          <a class="p-2 text-muted" href="https://www.mongodb.com/fr">MongoDB</a>
+          <a class="p-2 text-muted" href="https://mongoosejs.com/docs/">Mongoose</a>
+          <a class="p-2 text-muted" href="https://jwt.io/">JWT</a>
+          <a class="p-2 text-muted" href="https://getbootstrap.com/">Bootstrap</a>
+          <a class="p-2 text-muted" href="https://www.npmjs.com/package/dotenv">DotENV</a>
+        </nav>
+      </div>
+
+      <div class="jumbotron p-3 p-md-5 text-white rounded" style="background: url(/assets/app/fond_3.jpg);background-position-x: right;">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 bold text-dark">AuthNoSQL</h1>
+          <p class="lead my-3 text-dark">NodeJS & Mongo authentification et authorization system built with expressJS and JSON Web Token.</p>
+          <p class="lead mb-0"><a href="#" class="text-white font-weight-bold"><!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/halasproject/authnosql" data-icon="octicon-star" data-size="large" aria-label="Star halasproject/authnosql on GitHub">Star</a><!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/halasproject" data-size="large" data-show-count="true" aria-label="Follow @halasproject on GitHub">Follow @halasproject</a></a></p>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">World</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Featured post</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 12</div>
+              <p class="card-text mb-auto">Text Here.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-success">Design</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Post title</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 11</div>
+              <p class="card-text mb-auto">Text Here.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="blog-footer">
+      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>

@@ -1,24 +1,25 @@
-export function isAdmin(request,response,next){
+const DB = require('../config/database')
+
+export function isAdmin(request,response,next) {
     DB.user.findById(request.userId).exec((error,user)=>{
         if (error){
             response.status(403).send({message: error})
             return;
-        }
-    })
-
-    DB.role.find({_id:request.userId}).exec((error,role) => {
-        if (error){
-            response.status(403).send({message: error})
-            return;
         } else {
-            DB.ROLE.forEach(a => {
-                if (a === role && role === 'admin'){
-                    next();
+            DB.role.findOne({_id:user.role}).exec((error,role) => {
+                if (error){
+                    response.status(403).send({message: error})
+                    return;
+                } else {
+                    DB.ROLES.forEach(a => {
+                        if (a === role.name && role.name === 'admin'){
+                            return next();
+                        }
+                    })
+                    response.status(403).send({message: "Require Admin Role!"})
                     return;
                 }
             })
-            response.status(403).send({message: "Require Admin Role!"})
-            return;
         }
-    })
+})
 }

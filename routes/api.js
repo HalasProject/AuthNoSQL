@@ -1,13 +1,16 @@
 const express = require('express')
 const router = express.Router();
 
-import { checkDuplicateUsernameOrEmail } from '../middlewares/checkDuplicateUsernameOrEmail'
+import { checkDuplicateUsernameOrEmail } from "../middlewares/checkDuplicateUsernameOrEmail";
+import { signIn as loginController , signUp as registerController , logOut} from '../controllers/auth.controller'
 
-const controller_signup = require('../controllers/Auth/singUp')
-const controller_signin = require('../controllers/Auth/signIn')
+router.get('/auth/logout',logOut)
+router.post('/auth/signup',
+            checkDuplicateUsernameOrEmail,
+            registerController);
 
-router.post('/auth/signup',checkDuplicateUsernameOrEmail,controller_signup);
-router.post('/auth/signin',controller_signin)
+router.post('/auth/signin',
+            loginController)
 
 
 module.exports = router;

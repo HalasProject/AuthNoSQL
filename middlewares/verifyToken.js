@@ -1,9 +1,9 @@
-const JWT = require('jsonwebtoken')
 const DB = require('../config/database')
-
+import JWT from 'jsonwebtoken'
 
 export function verifyToken(request,response,next){
-    let token = request.headers['x-access-token'];
+
+    let token = request.cookies.token
 
     if (!token){
         response.status(403).send({message: "No token provided"})

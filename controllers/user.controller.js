@@ -1,15 +1,15 @@
-exports.allAccess = (req, res) => {
-    res.status(200).send("Public Content.");
-  };
+export function allAccess(request, response) {
+  return response.status(200).send("page/index");
+};
   
-  exports.userBoard = (req, res) => {
-    res.status(200).send("User Content.");
-  };
+export function userBoard (request, response) {
+  return response.status(200).send("User Content.");
+};
   
-  exports.adminBoard = (req, res) => {
-    res.status(200).send("Admin Content.");
-  };
+export function adminBoard(request, response) {
+  return response.status(200).render("admin/index");
+};
   
-  exports.moderatorBoard = (req, res) => {
-    res.status(200).send("Moderator Content.");
-  };
+export function moderatorBoard(request, response) {
+  return response.status(200).send("moderator/index");
+};
