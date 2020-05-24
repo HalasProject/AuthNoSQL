@@ -2,7 +2,10 @@ const DB = require('../config/database')
 
 
 export function checkDuplicateUsernameOrEmail(request,response,next){
-
+    if (request.body.password.length < 6){
+        response.status(500).send({message: "Please choose a longer password"})
+        return;
+    }
     // Check for username if already exist
     DB.user.findOne({
         username: request.body.username

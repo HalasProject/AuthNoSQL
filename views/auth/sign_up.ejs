@@ -59,7 +59,7 @@
   </head>
   <body class="text-center">
     <form method="POST" action="/api/auth/signup" class="form-signin">
-      <img class="mb-4" src="/assets/app/logo.png" alt="" width="120" height="120">
+      <a href="/"><img class="mb-4" src="/assets/app/logo.png" alt="" width="120" height="145"></a>
       <h1 class="h3 mb-3 font-weight-normal">Register</h1>
       
       <label for="inputEmail" class="sr-only">Name</label>
@@ -72,7 +72,7 @@
       <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required>
       
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" minlength="6" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       Already have an account ?<a href="/auth/signin"> Login</a>
