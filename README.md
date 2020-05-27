@@ -1,5 +1,9 @@
-# Introduction
+<p align="center">
+![Presentation](https://raw.githubusercontent.com/HalasProject/authnosql/master/public/app/logo.png)
+</p>
 
+# Introduction
+![Presentation](https://raw.githubusercontent.com/HalasProject/authnosql/master/public/app/Authnosql.gif)
 a small application to satisfy the need for authentication and authorization of users with **expressjs** and **mongodb** (mongoose), the token is generated using (**JWT**) JSON Web Token with an HS512 encryption and the password encrypt with **bcrype** the view engine is **ejs** you will find  a .env file to customize your application with the following options:
 
 ```
