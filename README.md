@@ -1,5 +1,5 @@
 <p align="center">
-![Presentation](https://raw.githubusercontent.com/HalasProject/authnosql/master/public/app/logo.png)
+   <img width="120" height="130" src="https://raw.githubusercontent.com/HalasProject/authnosql/master/public/app/logo.png" />
 </p>
 
 # Introduction
