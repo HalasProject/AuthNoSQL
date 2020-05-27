@@ -2,9 +2,10 @@ const DB = require("../config/database")
 import JWT from 'jsonwebtoken'
 
 export function isConnected(request,response,next){
+    
     let token = request.cookies.token
     if(token){
-        JWT.verify(token,process.env.JWT_SECRET,(error,decoded) => {
+         JWT.verify(token,process.env.JWT_SECRET,(error,decoded) => {
             if (error){
                 return response.status(500).send({message:error})
             } else {
@@ -26,4 +27,5 @@ export function isConnected(request,response,next){
     } else {
         return next()
     }
+    
 }

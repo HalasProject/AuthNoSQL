@@ -27,8 +27,7 @@ const Seed = require('./seeds/seeds')
 Seed.role()
 
 // ROUTER
-// import {isConnected} from './middlewares/isConnected'
-// app.use(isConnected)
+
 let router = require('./routes/route')
 app.use(router)
 

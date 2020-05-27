@@ -1,49 +1,68 @@
 
-document.querySelector('form').addEventListener('submit',(event)=>{
+var form = document.querySelector('form')
+if (form){
+    form.addEventListener('submit',(event)=>{
 
-    event.preventDefault();
+        event.preventDefault();
+        
+        let target = event.target.action;
+        let action = target.substring(target.lastIndexOf("/") +1)
+        if (action == "signin"){
+            let data = {
+                email    : document.querySelectorAll('input').item(0).value,
+                password : document.querySelectorAll('input').item(1).value,
+                remember : document.querySelectorAll('input').item(2).checked
+            }
+           
+            axios.post(target,data).then(function (user){
+                console.log(user.data)
+                alertsweet("success","Connected !")
+                window.setTimeout(()=>{
+                    window.location.href = "/"
+                },1500)
+                
+            }).catch(function (error){
+                console.log()
+                alertsweet("error",error.response.data.message)
+            })
     
-    let target = event.target.action;
-    let action = target.substring(target.lastIndexOf("/") +1)
-    if (action == "signin"){
-        let data = {
-            email    : document.querySelectorAll('input').item(0).value,
-            password : document.querySelectorAll('input').item(1).value,
-            remember : document.querySelectorAll('input').item(2).checked
+        } 
+    
+        if (action == "signup"){
+            let data = {
+                name :document.querySelectorAll('input').item(0).value,
+                username: document.querySelectorAll('input').item(1).value,
+                email: document.querySelectorAll('input').item(2).value,
+                password: document.querySelectorAll('input').item(3).value
+            }
+            axios.post(target,data).then((result) => {
+                alertsweet("success",result.data.message)
+                window.setTimeout(()=>{
+                    window.location.href="/auth/signin"
+                },1500)
+            }).catch((error) => {
+                alertsweet("error",error.response.data.message)
+            })
         }
-       
-        axios.post(target,data).then(function (user){
-            console.log(user.data)
-            alertsweet("success","Connected !")
+    
+    })
+}
+
+var logout = document.querySelector('#logout')
+if(logout){
+    logout.addEventListener('click',(event)=>{
+        event.preventDefault();
+        axios.get('/api/auth/logout').then((msg)=>{
             window.setTimeout(()=>{
-                window.location.href = "/"
+                window.location.reload()
             },1500)
-            
-        }).catch(function (error){
-            console.log()
-            alertsweet("error",error.response.data.message)
+            alertsweet("success",msg.data.message)
+        }).catch((e)=>{
+            alertsweet("error",e)
         })
+    })
+}
 
-    } 
-
-    if (action == "signup"){
-        let data = {
-            name :document.querySelectorAll('input').item(0).value,
-            username: document.querySelectorAll('input').item(1).value,
-            email: document.querySelectorAll('input').item(2).value,
-            password: document.querySelectorAll('input').item(3).value
-        }
-        axios.post(target,data).then((result) => {
-            alertsweet("success",result.data.message)
-            window.setTimeout(()=>{
-                window.location.href="/auth/signin"
-            },1500)
-        }).catch((error) => {
-            alertsweet("error",error.response.data.message)
-        })
-    }
-
-})
 
 function alertsweet(type,message){
     const Toast = Swal.mixin({

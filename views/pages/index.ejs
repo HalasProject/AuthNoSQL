@@ -41,8 +41,13 @@
             <a class="text-muted" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
               </a>
+              <% if (locals.user) {%>
+                <a class="btn btn-sm btn-outline-secondary" id="logout" href="/api/auth/logout" style="margin-right: 15px;color: #fff;background-color: #6c757d;border-color: #6c757d;" >Log out</a>
+              <% } else { %>
                 <a class="btn btn-sm btn-outline-secondary" href="/auth/signin" style="margin-right: 15px;color: #fff;background-color: #6c757d;border-color: #6c757d;" >Sign In</a>
                 <a class="btn btn-sm btn-outline-secondary" href="/auth/signup">Sign up</a>
+              <% } %>
+               
           </div>
         </div>
       </header>
@@ -125,5 +130,8 @@
     </script>
     <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="/assets/app/sweetalert.js"></script>
+<script src="/assets/app/axios.min.js"></script>
+<script src="/assets/app/auth.js"></script>
   </body>
 </html>

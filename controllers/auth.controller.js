@@ -34,6 +34,7 @@ export function signIn(request,response,next){
         },process.env.JWT_SECRET,
         { expiresIn: expire*0.001 ,algorithm: process.env.JWT_ALGORITHEM})
         
+        console.log(`${user.username} just logged in ✔️`);
         return response.status(200).cookie('token',JWT_token, {
             expires:new Date((new Date()).valueOf() + expire),
             secure:false, // True for HTTPS
@@ -45,7 +46,7 @@ export function signIn(request,response,next){
             token:JWT_token
         })
 
-        console.log(`${user.username} just logged in ✔️`);
+       
        
     })
 }
@@ -90,8 +91,10 @@ export function logOut(request,response,next){
             if (error) return response.status(500).send({message:error})
             response.clearCookie('token')
             console.log(`${decoded.username} just logged out ✔️`);
-            return response.status(200).redirect('/')
+            return response.status(200).json({message:"You have successfully logged out!"})
         })  
+    } else {
+        return next();
     }
-    next();
+   
 }

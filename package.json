@@ -1,14 +1,14 @@
 {
-  "name": "nosql",
+  "name": "authnosql",
+  "author": "Salah Bentayeb",
+  "description": "Authentification & Authorization System with (NodeJS & MongoDB)",
   "version": "1.0.0",
-  "description": "",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "express-session": "^1.17.1",
